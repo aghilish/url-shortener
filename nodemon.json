@@ -1,0 +1,11 @@
+{
+    "exec": "yarn build && yarn start",
+    "watch": [
+        "src"
+    ],
+    "ignore": [
+        "*.test.js",
+        "routes.ts"
+    ],
+    "ext": "ts"
+}

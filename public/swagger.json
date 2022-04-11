@@ -1,0 +1,107 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"shortenerResponse": {
+				"properties": {
+					"slug": {
+						"type": "string"
+					},
+					"destination": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"slug",
+					"destination"
+				],
+				"type": "object"
+			},
+			"shortenerRequest": {
+				"properties": {
+					"slug": {
+						"type": "string"
+					},
+					"destination": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"destination"
+				],
+				"type": "object"
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "url-shortener",
+		"version": "1.0.0",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/{slug}": {
+			"get": {
+				"operationId": "Fetch",
+				"responses": {
+					"302": {
+						"description": "Redirect"
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "slug",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/create": {
+			"post": {
+				"operationId": "Shorten",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/shortenerResponse"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/shortenerRequest"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/api"
+		}
+	]
+}
