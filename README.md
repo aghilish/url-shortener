@@ -1,4 +1,4 @@
-# tier.app url shortener
+# url shortener
 
 ### install 
 ``` 
