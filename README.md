@@ -16,3 +16,11 @@ yarn start
 ```
 yarn dev
 ```
+### test
+```
+yarn test
+```
+### test e2e
+```
+yarn test:e2e
+```
